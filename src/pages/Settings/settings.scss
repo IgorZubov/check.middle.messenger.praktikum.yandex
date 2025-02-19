@@ -1,0 +1,109 @@
+.settings {
+  align-items: center;
+  background: no-repeat url('/images/backgrounds/bg_2.png') center / cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.settings-wrap {
+  background-color: var(--bg-blackout);
+  border-radius: 12px;
+  height: 95%;
+  width: 98%;
+}
+
+.settings-block {
+  margin: 0 auto;
+  padding: 32px 0;
+  text-align: center;
+  width: 500px;
+}
+
+.avatar {
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 26px;
+  width: 160px;
+}
+
+.greetings {
+  border-bottom: 1px solid var(--white60per);
+  color: var(--white);
+  font-size: 32px;
+  margin-bottom: 45px;
+  padding-bottom: 28px;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.settings-input-wrap {
+  align-items: center;
+  border: 1px solid var(--white60per);
+  border-radius: 36px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 7px 25px;
+  width: 100%;
+
+  p {
+    color: var(--greyd9);
+    font-size: 14px;
+    font-weight: 400;
+    grid-column: span 2;
+    text-align: left;
+  }
+
+  input {
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 16px;
+    grid-column: span 4;
+    width: 100%;
+  }
+}
+
+.settings-btns-wrap {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.settings-btns-wrap > .settings-btn {
+  &:nth-child(1) {
+    grid-column: span 2;
+  }
+}
+
+.settings-btn {
+  background-color: transparent;
+  border: 2px solid;
+  border-radius: 36px;
+  font-size: 14px;
+  font-weight: bold;
+  outline: none;
+  padding: 7px 0;
+  transition: opacity var(--transition);
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.settings-btn.red {
+  border-color: red;
+  color: red;
+}
+
+.settings-btn.blue {
+  border-color: #0038ff;
+  color: #0038ff;
+}

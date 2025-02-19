@@ -1,9 +1,0 @@
-<div class="chat-header{{#if className}} {{ className }}{{/if}}">
-    <nav class="chat-header__nav">
-        {{> Link page="profile" secondary='secondary' text="Профиль"}}
-        {{> Link page="login" secondary='secondary' text="Логин"}}
-        {{> Link page="error500" secondary='secondary' text="500 ошибка"}}
-        {{> Link page="error404" secondary='secondary' text="404 ошибка"}}
-    </nav>
-    {{> Input id='chat-search' placeholder="Поиск" name="chat-search" type="search"}}
-</div>

@@ -1,32 +1,40 @@
-const isArray = (value: unknown): value is [] => Array.isArray(value);
+import { PlainObject } from "../types/PlainObject.t";
 
-export type PlainObject<T = unknown> = {
-  [k in string]: T;
-};
+function isArray(value: unknown): value is [] {
+  return Array.isArray(value);
+}
 
-const isPlainObject = (value: unknown): value is PlainObject =>
-  typeof value === "object" && value !== null && value.constructor === Object && Object.prototype.toString.call(value) === "[object Object]";
+function isPlainObject(value: unknown): value is PlainObject {
+  return typeof value === 'object'
+    && value !== null
+    && value.constructor === Object
+    && Object.prototype.toString.call(value) === '[object Object]';
+}
 
-const isArrayOrObject = (value: unknown): value is [] | PlainObject => isPlainObject(value) || isArray(value);
+function isArrayOrObject(value: unknown): value is ([] | PlainObject) {
+  return isPlainObject(value) || isArray(value);
+}
 
-export const isEqual = (lhs: PlainObject, rhs: PlainObject) => {
-  if (Object.keys(lhs).length !== Object.keys(rhs).length) {
-    return false;
+export function isEqual(lhs: PlainObject | [], rhs: PlainObject | []): boolean {
+  if (isArray(lhs) && isArray(rhs)) {
+    if (lhs.length !== rhs.length) return false;
+
+    return lhs.every((value, index) => isEqual(value, rhs[index]));
   }
 
-  for (const [key, value] of Object.entries(lhs)) {
-    const rightValue = rhs[key];
-    if (isArrayOrObject(value) && isArrayOrObject(rightValue)) {
-      if (isEqual(value as PlainObject, rightValue as PlainObject)) {
-        continue;
+  if (isPlainObject(lhs) && isPlainObject(rhs)) {
+    if (Object.keys(lhs).length !== Object.keys(rhs).length) return false;
+
+    for (const [key, value] of Object.entries(lhs)) {
+      const rightValue = rhs[key];
+      if (isArrayOrObject(value) && isArrayOrObject(rightValue)) {
+        if (!isEqual(value, rightValue)) return false;
+      } else if (value !== rightValue) {
+        return false;
       }
-      return false;
     }
-
-    if (value !== rightValue) {
-      return false;
-    }
+    return true;
   }
 
-  return true;
-};
+  return false;
+}

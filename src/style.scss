@@ -1,0 +1,47 @@
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Teko:wght@300..700&display=swap';
+
+:root {
+  --black: black;
+  --black30per: rgb(0 0 0 / 30%);
+  --black40per: rgb(0 0 0 / 40%);
+  --black50per: rgb(0 0 0 / 50%);
+  --white: white;
+  --white60per: rgb(255 255 255 / 60%);
+  --white80per: rgb(255 255 255 / 80%);
+  --greyc5: #c5c5c5;
+  --greyd9: #d9d9d9;
+  --greyd916per: rgb(217 217 217 / 16%);
+  --blue: rgb(5 0 255 / 50%);
+  --bg-blackout: rgb(14 14 14 / 80%);
+  --transition: 0.1s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+.routing {
+  background-color: var(--white60per);
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 20px 40px;
+  position: absolute;
+  right: 0;
+  z-index: 5;
+
+  a {
+    color: var(--white);
+    font-size: 18px;
+    text-decoration: none;
+  }
+}

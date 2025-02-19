@@ -1,50 +1,61 @@
-@import "../../../static/variables";
-@import "../../../static/mixins";
-
-.modal {
+.modal_blackout {
+  align-items: center;
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0 0 0 / 50%);
-  z-index: $modal-display-bg-zindex;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+  z-index: 1000;
 
-  &__btn-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: white;
-  }
-
-  &--show {
-    display: block;
-  }
-
-  &__content {
-    width: 20%;
-    min-width: 330px;
-    background-color: white;
-    box-shadow: $card-shadow;
-    border-radius: 12px;
-    padding: 40px 30px;
-    z-index: $modal-zindex;
-
-    @include center-element-with-position;
-    @include display-flex(center, center, column);
-
-    &__title {
-      margin-bottom: 48px;
-    }
-  }
-
-  &__footer {
-    width: 100%;
-    margin-top: 45px;
+  &.modal--visible {
+    background-color: rgb(0 0 0 / 54.8%);
+    display: flex;
   }
 }
 
-.modal.active {
-  display: block;
+.modal {
+  background-color: var(--white);
+  border-radius: 12px;
+  min-height: 20vh;
+  padding: 20px 28px;
+  position: relative;
+  width: 40vw;
+}
+
+.modal__close-btn {
+  background-color: transparent;
+  border: none;
+  height: 26px;
+  outline: none;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 26px;
+
+  span {
+    background-color: black;
+    display: block;
+    height: 2px;
+    width: 100%;
+
+    &:nth-child(1) {
+      transform: translateY(50%) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+}
+
+.modal-form {
+  display: flex;
+}
+
+.modal-title {
+  margin-bottom: 14px;
+}
+
+.modal-input {
+  font-size: 16px;
+  width: 100%;
 }
