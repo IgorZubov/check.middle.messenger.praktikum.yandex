@@ -1,0 +1,11 @@
+<div {{#if id}}id={{id}}{{/if}} class="modal {{#if modalClassName}}{{modalClassName}}{{/if}}">
+    <div class="modal__content">
+      <h3 class="modal__content__title{{#if titleClassName}} {{titleClassName}}{{/if}}">{{title}}</h3>
+      {{> @partial-block }}
+      <div class="modal__footer">
+        {{#> Button className='modal__footer__btn'}}
+          <span>{{btnText}}</span>
+        {{/ Button }}
+      </div>
+    </div>
+</div>

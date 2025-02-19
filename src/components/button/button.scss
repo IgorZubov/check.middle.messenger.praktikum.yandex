@@ -1,0 +1,37 @@
+@import "../../../static/variables";
+@import "../../../static/mixins";
+
+.button {
+  height: 37px;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  background-color: $primary-color;
+  color: $primary-text-invert-color;
+  border: 0;
+  cursor: pointer;
+
+  &--circle {
+    width: $circle-button-size;
+    height: $circle-button-size;
+    border-radius: 50%;
+
+    @include display-flex(center, center);
+  }
+
+  &--ghost {
+    width: auto;
+    height: auto;
+    background: transparent;
+    color: $primary-color;
+    padding: 0;
+
+    &--warning {
+      color: $warning-color;
+    }
+  }
+
+  &--underline {
+    text-decoration: underline;
+  }
+}

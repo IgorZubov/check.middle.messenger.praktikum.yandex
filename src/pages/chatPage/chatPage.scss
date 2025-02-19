@@ -1,0 +1,37 @@
+@import "../../../static/variables";
+@import "../../../static/mixins";
+
+.chat-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+
+  &__list {
+    background-color: $secondary-bgcolor;
+    width: 25%;
+    min-width: 250px;
+    padding: 20px 10px;
+    border-right: $divider;
+  }
+
+  &__list-container {
+    padding: 0;
+    padding-bottom: 30px;
+    overflow-y: auto;
+    list-style-type: none;
+    height: calc(100vh - $chatlist-header - 50px);
+  }
+
+  &__messages {
+    width: 75%;
+    padding: 10px 20px 0;
+    position: relative;
+  }
+
+  &__no-data {
+    color: $secondary-text-color;
+
+    @include center-element-with-position;
+  }
+}

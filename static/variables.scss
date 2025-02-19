@@ -1,0 +1,56 @@
+$font-body: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+$font-weight-regular: 500;
+$font-weight-medium: 600;
+$font-weight-semibold: 700;
+$font-xxl: #{$font-weight-medium} 40px / 40px #{$font-body};
+$font-lg: #{$font-weight-regular} 20px / 20px #{$font-body};
+$font-md: #{$font-weight-regular} 16px / 16px #{$font-body};
+$font-regular: #{$font-weight-regular} 13px / 13px #{$font-body};
+$font-sm: #{$font-weight-regular} 11px / 11px #{$font-body};
+$font-xs: #{$font-weight-regular} 9px / 9px #{$font-body};
+$primary-text-color: #1e1e1e;
+$secondary-text-color: #999;
+$primary-text-invert-color: #fff;
+$primary-color: #3369f3;
+$secondary-color: #e4edfd;
+$warning-color: #f00;
+$primary-bgcolor: #fff;
+$secondary-bgcolor: #fbfbfb;
+$additional-elements-bgcolor: #efefef;
+$divider: 1px solid #eaeaea;
+
+// Input
+$input-height: 32px;
+$input-border-radius: 5px;
+$input-padding: 10px 14px 10px 1rem;
+
+// Card
+$card-shadow: 0 0 6px #00000024;
+
+// Button
+$circle-button-size: 30px;
+
+// Modal
+$modal-display-bg-zindex: 9999;
+$modal-zindex: 10000;
+
+// Avatar
+$user-avatar-size: 130px;
+$chat-list-avatar-size: 47px;
+$messages-avatar-size: 34px;
+
+// ChatList
+$chatlist-info-unread-size: 20px;
+$chatlist-header: 90px;
+
+// Link
+$link-height: 40px;
+
+// Dropdown
+$dropdown-border: 12px;
+
+// Messages
+$messages-header: 54px;
+$messages-footer: #{$messages-header};
+$messages-user-card-radius: 0 12px 12px 12px;
+$messages-owner-card-radius: 12px 12px 0 12px;

@@ -1,0 +1,36 @@
+@import "../static/variables";
+@import "../static/mixins";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  font: $font-regular;
+  color: $primary-text-color;
+
+  @include display-flex(center, center);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+input:focus {
+  outline: none;
+}
+
+p {
+  margin: 0;
+}

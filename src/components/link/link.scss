@@ -1,0 +1,22 @@
+@import "../../../static/variables";
+@import "../../../static/mixins";
+
+.link {
+  font: $font-sm;
+  height: $link-height;
+  width: 100%;
+  text-align: center;
+  color: $primary-color;
+  text-decoration: none;
+  cursor: pointer;
+
+  &--secondary {
+    color: $secondary-text-color;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include display-flex(center, stretch, column);
+}

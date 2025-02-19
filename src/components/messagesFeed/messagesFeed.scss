@@ -1,0 +1,25 @@
+@import "../../../static/mixins";
+@import "../../../static/variables";
+
+.messages-feed {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  &__main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 46px 0 30px;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+  }
+
+  &__no-data {
+    color: $secondary-text-color;
+
+    @include center-element-with-position;
+  }
+}

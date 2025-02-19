@@ -1,0 +1,49 @@
+@import "../../../static/variables";
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 2000;
+  min-width: 160px;
+  white-space: nowrap;
+
+  &-card {
+    background: $primary-bgcolor;
+    box-shadow: $card-shadow;
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  &--bottom {
+    right: 0;
+    top: 2.5rem;
+  }
+
+  &--top {
+    left: 0;
+    bottom: 2.5rem;
+  }
+
+  &--show {
+    display: block;
+  }
+
+  & > *:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}

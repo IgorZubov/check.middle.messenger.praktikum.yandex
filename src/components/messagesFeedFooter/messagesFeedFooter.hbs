@@ -1,0 +1,13 @@
+<footer class="messages-feed-footer">
+    {{#> Dropdown src="/icons/clip.svg" position="top" alt="Clip icon" }}
+        {{> DropdownOptionItem iconSrc="/icons/photo.svg" text='Фото или Видео' }}
+        {{> DropdownOptionItem iconSrc="/icons/file.svg" text='Файл' }}
+        {{> DropdownOptionItem iconSrc="/icons/location.svg" text='Локация' }}
+    {{/ Dropdown }}
+
+    {{> Input className="" circle=true id="message-input" placeholder="Сообщение" name="message"}}
+
+    {{#> Button circle=true }}
+        <img src="/icons/arrow-right.svg" alt="Arrow right icon"><img>
+    {{/ Button }}
+</footer>

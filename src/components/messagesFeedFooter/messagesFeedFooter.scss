@@ -1,0 +1,29 @@
+@import "../../../static/variables";
+
+.messages-feed-footer {
+  border-top: $divider;
+  height: $messages-footer;
+  padding: 10px 0 15px;
+}
+
+.messages-feed-footer__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__file-label {
+    display: inline-block;
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-image: url("/icons/clip.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+  }
+}
+
+.messages-feed-footer__btn {
+  margin-left: 20px;
+}

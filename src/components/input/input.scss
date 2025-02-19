@@ -1,0 +1,78 @@
+@import "../../../static/variables";
+
+.input {
+  position: relative;
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  height: $input-height;
+
+  &__element {
+    border-radius: $input-border-radius;
+    border: transparent;
+    padding: $input-padding;
+    width: 100%;
+    height: 100%;
+    font: inherit;
+    background-color: $additional-elements-bgcolor;
+
+    &--no-bg {
+      background-color: transparent;
+    }
+
+    &--type-file {
+      position: absolute;
+      left: -100%;
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+      appearance: none;
+    }
+  }
+
+  &--border {
+    border: none;
+    border-bottom: 1px solid $primary-color;
+    height: 26px;
+  }
+
+  &--border &__element {
+    padding: 0;
+  }
+
+  &--circle-border {
+    border-radius: 30px;
+  }
+
+  &--w100 {
+    width: 100%;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 1rem;
+    fill: $secondary-text-color;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &--invalid {
+    background-color: #ffe4e1;
+  }
+
+  &__error {
+    color: $warning-color;
+    font-size: 8px;
+    font-weight: 400;
+    display: block;
+  }
+}
+
+.input__error__container {
+  width: 100%;
+}
+
+.input__element[type="search"] {
+  padding-left: 2.5rem;
+}
