@@ -1,0 +1,39 @@
+<section class="chat-page">
+  {{{chatList}}}
+  {{#if active}}
+  <div class="chat-box">
+    <div class="chat-content">
+      <div class="chat-content__interlocutor">
+        <div class="chat-content__interlocutor-img"></div>
+        <div class="chat-content__interlocutor-inf">
+          <h3>{{chatsData.interlocutorName}}</h3>
+          <p class="chat-content__interlocutor-inf_online-status">{{online}}</p>
+        </div>
+        <div class="users"></div>
+        <p class="add-user" id="addUserBtn">Add user</p>
+      </div>
+      <div class="chat-content__message-list mes-list">
+        {{{messages}}}
+      </div>
+      <form class="chat-content__message-wrap mes-wrap">
+        <input type="file" name="file" id="file-input">
+        <label for="file-input" class="mes-wrap__file">
+          <img src="/images/chat/file.svg" alt="file">
+        </label>
+        <input type="text" class="chat-content__message-input" name="message" placeholder="Введите сообщение">
+        <button class="chat-content__message-send" type="submit">
+          <img src="/images/chat/send.svg" alt="Отправить сообщение">
+        </button>
+      </form>
+    </div>
+  </div>
+  {{else}}
+  <div class="chat-box">
+    <div class="chat-content">
+      <div class="selectItem">
+        <p class="selectText">Select a chat</p>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</section>

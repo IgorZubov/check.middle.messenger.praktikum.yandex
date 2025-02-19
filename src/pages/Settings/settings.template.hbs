@@ -1,0 +1,27 @@
+<section class="settings">
+  <div class="settings-wrap">
+    <div class="settings-block">
+      <div class="avatar-block">
+        <form class="avatar-form" method="post" enctype="multipart/form-data">
+          <label for="avatar-input">
+            <img class="avatar" src="/images/avatar.png" alt="Аватар">
+          </label>
+          <input
+            type="file"
+            id="avatar-input"
+            name="avatar"
+            accept="image/jpeg, image/jpg, image/png, image/gif, image/webp"
+            style="display: none;"
+          >
+        </form>
+      </div>
+      <h1 class="greetings">Привет, {{name}}!</h1>
+      <form class="settings-form" method="post">
+        {{{profile_settings}}}
+      </form>
+      <div class="settings-btns-wrap">
+        {{{buttons_settings}}}
+      </div>
+    </div>
+  </div>
+</section>
