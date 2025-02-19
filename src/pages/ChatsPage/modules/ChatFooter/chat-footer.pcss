@@ -1,0 +1,38 @@
+.chat-footer {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    background-color: var(--gray-900);
+
+    .input {
+        width: 100%;
+        margin-top: 0;
+
+        &__send-input {
+            margin-bottom: 0;
+        }
+    }
+
+    & .menu .button {
+        &--icon {
+            padding: 4px;
+
+            &:hover {
+                background: white;
+                color: var(--blue-hover);
+            }
+        }
+    }
+
+    & .button-send-message {
+        color: var(--blue);
+        padding: 0;
+
+        &.disabled {
+            color: var(--gray-700);
+            cursor: default;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<aside class="aside-chats">
+    <div class="aside-chats__profile">
+        {{{ addChat }}}
+        {{{ profileLink }}}
+    </div>
+    {{#if chats.length}}
+        <ul class="aside-chats__list">
+            {{#each chats }}
+                {{{ this }}}
+            {{/each }}
+        </ul>
+    {{else}}
+        <p class="empty">Список чатов пуст</p>
+    {{/if}}
+</aside>

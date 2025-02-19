@@ -1,0 +1,22 @@
+.avatar-mini {
+    width: 47px;
+    height: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 10px;
+    background-color: var(--green);
+    border-radius: 100%;
+    color: white;
+
+    &__avatar-img {
+        position: absolute;
+        z-index: 2;
+        max-width: 100%;
+        width: 47px;
+        height: 47px;
+        border-radius: 100%;
+        overflow: clip;
+        object-fit: cover;
+    }
+}

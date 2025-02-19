@@ -1,30 +1,95 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import prettierPlugin from "eslint-plugin-prettier";
-import eslintConfigPrettier from "eslint-config-prettier";
+import globals from 'globals';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import importPlugin from 'eslint-plugin-import';
+import prettier from 'eslint-plugin-prettier/recommended';
 
-export default [
-  {
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
-    rules: {
-      "prettier/prettier": ["warn", { endOfLine: "auto" }],
-      "@typescript-eslint/no-this-alias": "off",
+import { FlatCompat } from '@eslint/eslintrc';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
+
+const compat = new FlatCompat({
+    baseDirectory: dirname,
+});
+
+export default tseslint.config(
+    // eslint.configs.recommended,
+    // importPlugin.flatConfigs.recommended,
+    // ...compat.extends('airbnb-base'),
+    // ...tseslint.configs.recommendedTypeChecked,
+    // ...tseslint.configs.recommended,
+    // eslintConfigPrettier,
+    // eslintPluginPrettierRecommended,
+    {
+        ignores: [
+            '.github',
+            '.idea',
+            '.vscode',
+            'node_modules',
+            'public',
+            'dist',
+            'static',
+            '**/*.config.js',
+            '**/*.d.ts',
+            'server.mjs',
+        ],
     },
-    plugins: {
-      prettier: prettierPlugin,
+    {
+        files: ['src/**/*.{js,mjs,cjs,ts}'],
+        extends: [
+            eslint.configs.recommended,
+            ...tseslint.configs.recommended,
+            tseslint.configs.disableTypeChecked,
+            // importPlugin.flatConfigs.recommended,
+            eslintConfigPrettier,
+            prettier,
+        ],
+        languageOptions: {
+            ecmaVersion: 2023,
+            globals: globals.browser
+        },
+        plugins: {
+            '@typescript-eslint': tseslint.plugin,
+        },
+        settings: {
+            'import/resolver': {
+                node: true,
+                typescript: {
+                    project: './tsconfig.json'
+                },
+            },
+            "import/extensions": [
+                ".js",
+                // ".ts",
+            ],
+            "import/ignore": [
+                "\.(scss|less|css|pcss)$",
+                "\.(hbs)$",
+                "\.(ts)$",
+            ],
+        },
     },
-  },
-  {
-    ignores: ["node_modules", "dist"],
-  },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  {
-    files: ["**/*.{ts,tsx}"],
-    rules: {
-      ...eslintConfigPrettier.rules,
-      "@typescript-eslint/no-this-alias": "off",
+    {
+        rules: {
+            semi: ['error', 'always'],
+            'eol-last': ['error', 'always'],
+            '@typescript-eslint/no-unused-vars': [
+                'error',
+                {
+                    args: 'all',
+                    argsIgnorePattern: '^_',
+                    caughtErrors: 'all',
+                    caughtErrorsIgnorePattern: '^_',
+                    destructuredArrayIgnorePattern: '^_',
+                    varsIgnorePattern: '^_',
+                    ignoreRestSiblings: true,
+                },
+            ],
+            // 'import/newline-after-import': ['error', { count: 2 }],
+        },
     },
-  },
-];
+);

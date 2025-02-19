@@ -1,0 +1,61 @@
+.modal-container {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    background-color: transparent;
+
+    &.show {
+        display: flex;
+        background-color: var(--bg-black-700);
+    }
+}
+
+.modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background-color: white;
+    border-radius: 12px;
+    transform: translate(-50%, -50%);
+    min-width: 340px;
+    padding: 40px 30px;
+
+    &__title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    &__title:has(+ &__user-list) {
+        margin-bottom: 30px;
+    }
+
+    &__user-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+
+        &-title {
+            margin: 0;
+            margin-bottom: 14px;
+        }
+
+        &-login {
+            margin: 0;
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__actions {
+        margin-top: 30px;
+    }
+}

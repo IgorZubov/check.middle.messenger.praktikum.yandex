@@ -1,0 +1,40 @@
+.avatar {
+    position: relative;
+
+    &__empty {
+        width: 130px;
+        height: 130px;
+
+        &-svg {
+            width: 130px;
+            height: 130px;
+        }
+    }
+
+    &__image-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        width: 130px;
+        height: 130px;
+        background: transparent;
+        border-radius: 100%;
+    }
+
+    &__image {
+        position: absolute;
+        z-index: 2;
+        max-width: 100%;
+        width: 130px;
+        height: 130px;
+
+        /* height: auto; */
+
+        background-size: cover;
+        background-position: center;
+        border-radius: 100%;
+        object-fit: cover;
+        border: 1px solid black;
+    }
+}
