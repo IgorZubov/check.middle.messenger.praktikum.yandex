@@ -1,0 +1,20 @@
+<div class="modal-container">
+    <div class="modal">
+        <div class="modal__title title-15-bold">{{ title }}</div>
+        {{#if userList}}
+        <div class="modal__user-list">
+            <h4 class="modal__user-list-title subtitle-14-medium">Список пользователей в чате:</h3>
+            {{#each userList}}
+                <p class="modal__user-list-login title-13">{{this.display}}: <strong>{{this.login}}</strong> {{#if isMe}}( Я ){{/if}}</p>
+            {{/each}}
+        </div>
+        {{/if }}
+        <div class="modal__body">{{{ body }}}</div>
+        <div class="modal__actions">
+            {{{ submitBtn }}}
+            {{#if isShowCancel }}
+                {{{ cancelBtn }}}
+            {{/if }}
+        </div>
+    </div>
+</div>

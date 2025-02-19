@@ -1,0 +1,18 @@
+<div class="auth-form">
+    {{{ pageTitle }}}
+
+    <form action="" id="form" name={{formName}} class="auth-form__form">
+        {{#each items }}
+            <div class="auth-form__form-item">
+                {{{ this }}}
+            </div>
+        {{/each }}
+
+        <div class="auth-form__form-actions">
+            {{{ button }}}
+            {{#if link}}
+                {{{ link }}}
+            {{/if}}
+        </div>
+    </form>
+</div>

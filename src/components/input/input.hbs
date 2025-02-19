@@ -1,0 +1,14 @@
+<label for="{{id}}" class="input__label">{{label}}</label>
+<input 
+    id="{{id}}"
+    class="input__input {{inputClass}}"
+    type="{{type}}"
+    name="{{name}}"
+    value="{{value}}"
+    {{#if required}}
+        required
+    {{/if}}
+    {{#if disabled}}
+        disabled
+    {{/if}}> 
+<div class="input__error">{{error}}</div>

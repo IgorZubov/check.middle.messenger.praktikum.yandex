@@ -1,0 +1,15 @@
+<div class="chat">
+    <a class="chat__link" href="{{ link }}">
+        {{{ avatarMini }}}
+        <div class="chat__row-title flex-row">
+            <div class="chat__title title-13-bold dots">{{ chat.title }}</div>
+            <div class="chat__title-right text-9">{{ time }}</div>
+        </div>
+        <div class="chat__row-subtitle flex-row">
+            <div class="chat__subtitle text-9 dots-two">{{ chat.last_message.content }}</div>
+            {{#if chat.unread_count }}
+                <div class="chat__subtitle-right badge">{{chat.unread_count}}</div>
+            {{/if }}
+        </div>
+    </a>
+</div>

@@ -1,0 +1,34 @@
+.chat-header {
+    height: 55px;
+    padding: 0 20px;
+    position: relative;
+
+    &__avatar {
+        width: 47px;
+        height: 47px;
+        min-width: 47px;
+        min-height: 47px;
+    }
+
+    &__wrap {
+        height: inherit;
+        min-height: 55px;
+        max-width: 100%;
+        flex: 1 1 auto;
+        border-bottom: 1px solid var(--gray-border);
+    }
+
+    &__chat-info {
+        display: flex;
+        align-items: center;
+        flex: 1 1 auto;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    &__title {
+        padding: 0;
+        margin: 0;
+        padding-inline-start: 10px;
+    }
+}
