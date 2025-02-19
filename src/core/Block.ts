@@ -26,7 +26,7 @@ export default class Block<P extends BlockProps = any> {
   private _element: HTMLElement | null = null;
   private id: number = Math.floor(100000 + Math.random() * 900000);
   private eventBus: () => EventBus;
-  public props: P;
+  protected props: P;
   protected children: Children;
 
   constructor(propsWithChildren: P) {

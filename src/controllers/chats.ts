@@ -75,32 +75,6 @@ export class ChatsController {
     }
   }
 
-  static async editChatAvatar(data: FormData) {
-    try {
-      const response = await chatsAPI.changeChatAvatar(data);
-      const { avatar, id } = response as { avatar: string; id: string | number };
-      const { chats, selectedChat } = store.getState();
-
-      const updatedChats = chats?.map(chat =>
-        chat.id !== id
-          ? chat
-          : {
-              ...chat,
-              avatar,
-            },
-      );
-      if (updatedChats) {
-        store.set("chats", updatedChats);
-      }
-      store.set("selectedChat", {
-        ...selectedChat?.[0],
-        avatar,
-      });
-    } catch (error) {
-      console.log(error, "ошибка при попытке изменения аватара");
-    }
-  }
-
   static async getToken(chatId: number) {
     return chatsAPI.getToken(chatId);
   }

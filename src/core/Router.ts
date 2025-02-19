@@ -1,4 +1,4 @@
-import { Routes } from "../types/index.ts";
+import { Routes } from "@/types/index.ts";
 import Block, { BlockProps } from "./Block.ts";
 import { Route } from "./Route.ts";
 

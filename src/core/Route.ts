@@ -1,13 +1,13 @@
 import Block, { BlockProps } from "./Block.ts";
 
 export class Route {
-  public _pathname: string;
+  private _pathname: string;
 
-  public readonly _blockClass: typeof Block;
+  private readonly _blockClass: typeof Block;
 
-  public _block: null | Block;
+  private _block: null | Block;
 
-  public _props: {
+  private _props: {
     rootQuery: string;
     defaultProps: BlockProps;
   };
@@ -48,6 +48,7 @@ export class Route {
   render() {
     if (!this._block) {
       this._block = new this._blockClass(this._props.defaultProps);
+      // this._block = new this._blockClass({});
       this._renderDom(this._props.rootQuery, this._block as Block);
       return;
     }

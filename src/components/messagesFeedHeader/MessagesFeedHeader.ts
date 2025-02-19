@@ -1,5 +1,5 @@
 import { ChatsController } from "@/controllers/chats";
-import { Dropdown, Form, Input, InputField, Label, Modal } from "..";
+import { Dropdown, Form, InputField, Modal } from "..";
 import Block from "@/core/Block";
 import store from "@/core/Store.ts";
 import { validateAndCollectFormData } from "@/utils/validateAndCollectFormData";
@@ -12,28 +12,7 @@ interface MessagesFeedHeaderProps {
 export class MessagesFeedHeader extends Block {
   constructor(props: MessagesFeedHeaderProps) {
     super({
-      fileLabel: new Label({
-        inputId: "chatAvatarFile",
-        title: `<div class="messages-feed-header__avatar"><img width="100%" height="100%" alt="User avatar" src="${props?.avatar ? `https://ya-praktikum.tech/api/v2/resources${props?.avatar}` : "/icons/img.svg"}"><img></div>`,
-        className: "",
-      }),
-      fileInput: new Input({
-        name: "chatAvatarFile",
-        id: "chatAvatarFile",
-        type: "file",
-        onChange: (e: Event) => {
-          e.preventDefault();
-          const formData = new FormData();
-          const target = e.target as HTMLInputElement;
-          if (target.files && target.files.length !== 0) {
-            const file = target.files[0];
-            const chatId = store?.getState()?.selectedChat?.[0]?.id;
-            formData.append("avatar", file);
-            formData.append("chatId", String(chatId));
-            ChatsController.editChatAvatar(formData);
-          }
-        },
-      }),
+      avatar: props.avatar,
       name: props.name,
     });
   }
@@ -148,29 +127,10 @@ export class MessagesFeedHeader extends Block {
     });
   }
 
-  protected componentDidUpdate() {
-    if (this?.props?.avatar) {
-      this.children.fileLabel = new Label({
-        inputId: "chatAvatarFile",
-        title: `<div class="messages-feed-header__avatar"><img width="100%" height="100%" alt="User avatar" src="${this.props?.avatar ? `https://ya-praktikum.tech/api/v2/resources${this.props?.avatar}` : "/icons/img.svg"}"><img></div>`,
-        className: "",
-      });
-    } else {
-      this.children.fileLabel = new Label({
-        inputId: "chatAvatarFile",
-        title: `<div class="messages-feed-header__avatar"><img width="100%" height="100%" alt="User avatar" src="/icons/img.svg""><img></div>`,
-        className: "",
-      });
-    }
-
-    return true;
-  }
-
   override render() {
     return `<header class="messages-feed-header">
                 <div class="messages-feed-header__user">
-                    {{{fileLabel}}}
-                    {{{fileInput}}}
+                    ${this.props.avatar ? `<div class="messages-feed-header__avatar"> <img width="48" height="48" class="messages-feed-header__user__avatar" src="https://ya-praktikum.tech/api/v2/resources{{avatar}}" alt=""></div>` : ' <div class="messages-feed-header__avatar"></div>'}
                     <span class="messages-feed-header__name">{{ name }}</span>
                 </div>
                 {{{dropdown}}}
